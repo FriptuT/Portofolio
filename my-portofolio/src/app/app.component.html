@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Portofolio</title>
 </head>
 <body>
   
@@ -20,13 +20,111 @@
   <section id="welcome" class="grid">
     <div class="welcome-text">
       <h2>Web Developer <br/> Angular Developer <br/></h2>
+      <p>"Perfection is attainable and if we choose to chase perfection we can catch excellence on the road!"</p>
+      <p id="p">
       <p class="leading">Quick accommodation with any tool</p>
       <a href="#portofolio" class="button">View my work</a>
     </div>
     <div class="welcome-img">
-      <img src="" alt="Friptu Teodor">
+      <img src="assets/eu.jpg" id="me" alt="Friptu Teodor">
     </div>
   </section>
 
+  <section id="portofolio">
+    <h3>Some of my Projects</h3>
+
+
+    <div class="projects grid">
+
+      <a href="https://github.com/FriptuT/minimumApp">
+        <img src="assets/number.jpg" alt="project 1">
+        <h4>Minimum of two numbers</h4>
+      </a>
+
+      <a href="https://github.com/FriptuT/CountdownApp">
+        <img src="assets/countdown.jpg" alt="project 2">
+        <h4>CountdownApp</h4>
+      </a>
+
+      <a href="https://github.com/FriptuT/recipe-book-angular">
+        <img src="assets/recipe.jpg" alt="project 3">
+        <h4>Recipe Book Angular</h4>
+      </a>
+
+    </div>
+
+
+  </section>
+
+  <section id="skills">
+    <h3>Things I Can Do</h3>
+    <ul class="grid">
+      <li>
+        <img src="assets/javascript.png" alt="js">
+        <h4>JavaScript</h4>
+      </li>
+    </ul>
+
+    <ul class="grid">
+      <li>
+        <img src="assets/angular.png" alt="js">
+        <h4>Angular</h4>
+      </li>
+    </ul>
+
+    <ul class="grid">
+      <li>
+        <img src="assets/typescript.png" alt="js">
+        <h4>TypeScript</h4>
+      </li>
+    </ul>
+
+    <ul class="grid">
+      <li>
+        <img src="assets/firebase.png" alt="js">
+        <h4>Firebase</h4>
+      </li>
+    </ul>
+
+  </section>
+
+  <section id="contact">
+    <h3>Get in Touch</h3>
+    <p class="leading">Leave your thoughts here!</p>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()"> 
+      <!-- RECAPITULARE FORMS ANGULAR -->
+
+      <input type="text" formControlName="username" placeholder="Full Name">
+      <span 
+      *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched"
+      class="help-block">Please enter your name!</span>
+      <input type="email" formControlName="email" placeholder="Email">
+      <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched"
+      class="help-block">Please enter your email!</span>
+      <textarea type="text" formControlName="textzone" placeholder="Your Message"></textarea>
+      <span *ngIf="!signupForm.get('textzone').valid && signupForm.get('textzone').touched"
+      class="help-block">Please enter your thoughts!</span>
+      <hr>
+      <button class="button">Send Message</button>
+      <hr>
+
+      <!-- RECAPITULARE FORMS && HTTP requests ANGULAR -->
+      <h1>COMMENTS</h1>
+
+    </form>
+  </section>
+
+  <footer>
+    <div class="grid">
+      <p class="copyright">Copyright 2021 Friptu's Portofolio</p>
+      <ul class="social">
+        <li><a href="https://ro-ro.facebook.com/friptu.teodor/about"><img src="assets/facebook.png" alt="facebook"></a></li>
+        <li><a href="https://www.instagram.com/friptuteodor/"><img src="assets/instagram.png" alt="instagram"></a></li>
+      </ul>
+    </div>
+  </footer>
+
 </body>
 </html>
+
+<!-- #11 Tablet Styles -->
