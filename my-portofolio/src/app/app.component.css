@@ -328,3 +328,25 @@ textarea.ng-invalid.ng-touched {
 .help-block {
     color:rgb(211, 202, 250);
 }
+
+h1{
+    text-align: center;
+    color:orange;
+}
+
+
+.counter{
+    color:rgb(224, 148, 5);
+}
+
+
+.name {
+    color:rgb(255, 195, 83);
+}
+
+.text{
+    color: rgb(255, 227, 174);
+}
+
+
+

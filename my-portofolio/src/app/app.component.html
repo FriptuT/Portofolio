@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portofolio</title>
 </head>
+
 <body>
-  
+
   <nav class="site-nav grid">
     <h1>Friptu Teodor's Portofolio</h1>
     <ul>
@@ -19,7 +21,7 @@
 
   <section id="welcome" class="grid">
     <div class="welcome-text">
-      <h2>Web Developer <br/> Angular Developer <br/></h2>
+      <h2>Web Developer <br /> Angular Developer <br /></h2>
       <p>"Perfection is attainable and if we choose to chase perfection we can catch excellence on the road!"</p>
       <p id="p">
       <p class="leading">Quick accommodation with any tool</p>
@@ -91,40 +93,86 @@
   <section id="contact">
     <h3>Get in Touch</h3>
     <p class="leading">Leave your thoughts here!</p>
-    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()"> 
+
+
+    <form #f="ngForm" (ngSubmit)="onSubmit()">
       <!-- RECAPITULARE FORMS ANGULAR -->
 
-      <input type="text" formControlName="username" placeholder="Full Name">
-      <span 
-      *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched"
-      class="help-block">Please enter your name!</span>
-      <input type="email" formControlName="email" placeholder="Email">
-      <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched"
-      class="help-block">Please enter your email!</span>
-      <textarea type="text" formControlName="textzone" placeholder="Your Message"></textarea>
-      <span *ngIf="!signupForm.get('textzone').valid && signupForm.get('textzone').touched"
-      class="help-block">Please enter your thoughts!</span>
+      <input 
+      type="text" 
+      [(ngModel)]="newFullName" 
+      name="username" 
+      required 
+      placeholder="Full Name"
+      >
+
+
+      <input 
+      type="email" 
+      ngModel 
+      name="email" 
+      required 
+      email 
+      #email="ngModel"
+      [(ngModel)]="newMail" 
+      placeholder="Email">
+
+
+      <textarea type="text" [(ngModel)]="textarea" name="textzone" required placeholder="Your message"></textarea>
+
+
+
       <hr>
-      <button class="button">Send Message</button>
-      <hr>
+      <button 
+      class="button"
+      (click)="onAddComment()"
+      >Send Message</button>
 
       <!-- RECAPITULARE FORMS && HTTP requests ANGULAR -->
-      <h1>COMMENTS</h1>
-
     </form>
+
   </section>
+
+  <h1><strong>COMMENTS SECTION </strong> </h1>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div 
+      class="panel panel-default"
+      *ngFor="let comment of commentSection; let i = index;">
+       <div class="panel-heading">
+        <p class="counter">{{ i+1 }}</p>
+         <p class="name">
+           <strong>Name: {{ comment.fullname }}</strong>
+         </p>
+
+         <p class="text">
+          <strong>Comment: {{ comment.textarea  }}</strong>
+         </p>
+         
+        </div>
+       
+      </div>
+      <hr>
+  
+    </div>
+  </div>
+  
+
 
   <footer>
     <div class="grid">
       <p class="copyright">Copyright 2021 Friptu's Portofolio</p>
       <ul class="social">
-        <li><a href="https://ro-ro.facebook.com/friptu.teodor/about"><img src="assets/facebook.png" alt="facebook"></a></li>
+        <li><a href="https://ro-ro.facebook.com/friptu.teodor/about"><img src="assets/facebook.png" alt="facebook"></a>
+        </li>
         <li><a href="https://www.instagram.com/friptuteodor/"><img src="assets/instagram.png" alt="instagram"></a></li>
       </ul>
     </div>
   </footer>
 
 </body>
+
 </html>
 
 <!-- #11 Tablet Styles -->

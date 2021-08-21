@@ -1,25 +1,41 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component,  ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
+
+  @ViewChild('f') signupForm: NgForm;
+
+  commentSection = [];
+
+  newFullName = '';
+  newMail = '';
+  textarea = '';
+
   
- signupForm: FormGroup;
 
- ngOnInit() {
-   this.signupForm = new FormGroup({
-     'username': new FormControl(null, Validators.required),
-     'email': new FormControl(null, [Validators.required, Validators.email]),
-     'textzone': new FormControl(null, Validators.required)
-   });
- }
+  submitted = false;
 
- onSubmit(){
-   console.log(this.signupForm.value);
-   this.signupForm.reset();
- }
+
+  onSubmit() {
+    this.submitted = true;
+    this.signupForm.reset();
+  }
+
+  onAddComment(){
+    this.commentSection.push({
+      fullname: this.newFullName,
+      textarea: this.textarea
+    });
+  }
+
+
+
+
 }
